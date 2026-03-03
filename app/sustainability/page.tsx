@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sustainability | One and Only Furniture",
+  description: "Our commitment to sustainable office furniture solutions, eco-friendly materials, and responsible manufacturing.",
+};
+
 ﻿import { Leaf, Recycle, Lightbulb } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
@@ -5,7 +12,7 @@ import { Newsletter } from "@/components/shared/Newsletter";
 
 export default function SustainabilityPage() {
   return (
-    <section className="flex min-h-screen flex-col items-center bg-white">
+    <main className="flex min-h-screen flex-col items-center bg-white">
       <Hero
         variant="small"
         title="Thinking Green."
@@ -148,7 +155,7 @@ export default function SustainabilityPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <Newsletter />
       <ContactTeaser />
