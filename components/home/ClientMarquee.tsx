@@ -77,12 +77,13 @@ export function ClientMarquee() {
   return (
     <section className="w-full bg-[#1a2030] py-10 md:py-12 overflow-hidden">
       <div className="container mb-6 px-6 2xl:px-0">
-        <p className="text-left md:text-right text-sm font-semibold tracking-[0.1em] text-[#8792ad]">
-          Clients we have delivered for
-        </p>
+        <h2 className="text-center text-2xl font-bold tracking-tight text-white md:text-3xl">
+          Trusted by India's leading organisations
+        </h2>
+        <p className="sr-only">Trusted by over 120 organisations including HDFC, Tata, NTPC, and more.</p>
       </div>
 
-      <div className="relative flex flex-col gap-4 md:gap-5 select-none">
+      <div aria-hidden="true" className="relative flex flex-col gap-4 md:gap-5 select-none">
         {/* Row 1 - scrolling left */}
         <div
           id={firstTrackId}
