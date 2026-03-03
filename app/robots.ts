@@ -1,15 +1,10 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://ourwebsitecopy2026-02-21.vercel.app");
+import { SITE_URL } from "@/lib/siteUrl";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: [`${BASE_URL.replace(/\/+$/, "")}/sitemap.xml`],
-    host: BASE_URL.replace(/\/+$/, ""),
+    sitemap: [`${SITE_URL}/sitemap.xml`],
+    host: SITE_URL,
   };
 }
-
