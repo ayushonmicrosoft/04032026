@@ -15,6 +15,7 @@ export const SITE_NAV_LINKS = [
   { label: "Trusted by", href: "/trusted-by" },
   { label: "About", href: "/about" },
   { label: "Sustainability", href: "/sustainability" },
+  { label: "Quote Cart", href: "/quote-cart" },
 ] as const;
 
 export const SITE_CTA_LINKS = [
@@ -63,6 +64,7 @@ export const SITE_FOOTER_NAV = [
     links: [
       { href: "/contact", label: "Contact Us" },
       { href: "/contact", label: "Get Quote" },
+      { href: "/quote-cart", label: "View Quote Cart" },
       { href: "/refund-and-return-policy", label: "Refund Policy" },
       { href: "/privacy", label: "Privacy Policy" },
     ],
