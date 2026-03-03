@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import { Users, Briefcase, Smile } from "lucide-react";
 import { JobCard } from "@/components/career/JobCard";
 import { Button } from "@/components/ui/Button";
 import { Hero } from "@/components/home/Hero";
 import { Newsletter } from "@/components/shared/Newsletter";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
+
+
+export const metadata: Metadata = {
+  title: "Careers | One and Only Furniture",
+  description: "Join the team at One and Only Furniture. Explore career opportunities in office furniture design, sales, and production.",
+};
 
 const JOBS = [
   {
@@ -25,7 +32,7 @@ const JOBS = [
 
 export default function CareerPage() {
   return (
-    <section className="flex min-h-screen flex-col items-center bg-white">
+    <main className="flex min-h-screen flex-col items-center bg-white">
       {/* Hero */}
       <Hero
         variant="small"
@@ -79,7 +86,7 @@ export default function CareerPage() {
             </p>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* Open Positions */}
       <section className="w-full bg-neutral-50 py-24 border-y border-neutral-200">
@@ -131,4 +138,3 @@ export default function CareerPage() {
     </section>
   );
 }
-
