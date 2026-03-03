@@ -155,10 +155,11 @@ export default function SustainabilityPage() {
             </div>
           </div>
         </div>
-      </main>
+      
 
       <Newsletter />
       <ContactTeaser />
     </section>
+    </main>
   );
 }
