@@ -7,23 +7,23 @@ import { ArrowRight } from "lucide-react";
 const steps = [
   {
     id: "01",
-    title: "Consultation",
-    description: "We lock scope, budget, timeline and approval checkpoints upfront.",
+    title: "Free Site Survey",
+    description: "You share your brief, we visit the site and prepare a full scope with zero obligation.",
   },
   {
     id: "02",
-    title: "Space Planning",
-    description: "2D/3D layouts and BOQ support are prepared for faster internal sign-off.",
+    title: "BOQ & Layout in 48 Hours",
+    description: "Get 2D/3D layouts and a detailed Bill of Quantities within 48 hours for faster sign-off.",
   },
   {
     id: "03",
-    title: "Selection",
-    description: "Materials and specs are finalized with confirmed production and delivery windows.",
+    title: "Select & Confirm",
+    description: "Choose from our catalog, confirm finishes. We lock production with a confirmed delivery window.",
   },
   {
     id: "04",
-    title: "Installation",
-    description: "Our team installs on site, completes handover checks and shares warranty documents.",
+    title: "White-glove Installation",
+    description: "Our team delivers, installs, and hands over with full warranty documentation.",
   },
 ] as const;
 
@@ -56,7 +56,7 @@ export function ProcessSection() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="group flex gap-8"
               >
-                <span className="typ-h1 text-neutral-300 transition-colors duration-300 group-hover:text-primary">
+                <span aria-hidden="true" className="typ-h1 text-neutral-300 transition-colors duration-300 group-hover:text-primary">
                   {step.id}
                 </span>
                 <div className="pt-2">
