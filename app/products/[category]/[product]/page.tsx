@@ -15,10 +15,7 @@ import {
   fetchProductSpecsMap,
 } from "@/lib/productDataTables";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://ourwebsitecopy2026-02-21.vercel.app");
+
 
 type CategoryResolutionRow = {
   id?: string;
@@ -289,6 +286,32 @@ async function ProductContent({
     : `/products/${resolvedCategoryId}`;
 
   const url = `${BASE_URL}/products/${resolvedCategoryId}/${p.slug}`;
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Products",
+        "item": `${BASE_URL}/products`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": p.series_name || resolvedCategoryId,
+        "item": `${BASE_URL}/products/${resolvedCategoryId}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": p.name,
+        "item": url
+      }
+    ]
+  };
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -311,6 +334,10 @@ async function ProductContent({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <ProductViewer
         product={compatProduct}
