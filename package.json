@@ -55,9 +55,7 @@
     "next": "^16.1.6",
     "nprogress": "^0.2.0",
     "openai": "^6.25.0",
-    "playwright": "^1.58.2",
     "postgres": "^3.4.8",
-    "puppeteer": "^24.37.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-hot-toast": "^2.6.0",
@@ -104,6 +102,8 @@
     "ts-morph": "^27.0.2",
     "ts-node": "^10.9.2",
     "typescript": "^5",
-    "whatwg-fetch": "^3.6.20"
+    "whatwg-fetch": "^3.6.20",
+    "puppeteer": "^24.37.5",
+    "playwright": "^1.58.2"
   }
 }
