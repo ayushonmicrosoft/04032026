@@ -91,7 +91,7 @@ export function Hero({
             <source src={videoBackground} type="video/mp4" />
           </video>
         ) : backgroundImage ? (
-          <Image
+          <Image quality={75}
             src={backgroundImage}
             alt="Hero Background"
             fill
