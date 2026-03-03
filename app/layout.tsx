@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/Header";
 import { SiteFooter } from "@/components/site/Footer";
@@ -7,26 +7,21 @@ import dynamic from "next/dynamic";
 import QueryProvider from "@/app/providers/QueryProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SITE_URL } from "@/lib/siteUrl";
 
-const AdvancedBot = dynamic(() =>
-  import("@/components/bot/AdvancedBot").then((m) => ({
-    default: m.AdvancedBot,
-  })),
+// ssr: false — these are heavy client-only widgets, no need to server-render
+const AdvancedBot = dynamic(
+  () => import("@/components/bot/AdvancedBot").then((m) => ({ default: m.AdvancedBot })),
+  { ssr: false },
 );
-const AIAdvisor = dynamic(() =>
-  import("@/components/ai/Advisor").then((m) => ({
-    default: m.AIAdvisor,
-  })),
+const AIAdvisor = dynamic(
+  () => import("@/components/ai/Advisor").then((m) => ({ default: m.AIAdvisor })),
+  { ssr: false },
 );
-
-const FALLBACK_SITE_URL = "https://ourwebsitecopy2026-02-21.vercel.app";
-const RAW_SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
-const SITE_URL = (RAW_SITE_URL || FALLBACK_SITE_URL).replace(/\/+$/, "");
 
 export const metadata: Metadata = {
+  // metadataBase resolves relative image/url paths → correct domain automatically.
+  // Change domain: set NEXT_PUBLIC_SITE_URL env var. Nothing else needs changing.
   metadataBase: new URL(SITE_URL),
   title: {
     default: "One and Only Furniture | Premium Office Solutions - Gurugram, Haryana",
@@ -35,16 +30,17 @@ export const metadata: Metadata = {
   description:
     "One and Only Furniture - premium ergonomic office furniture in Gurugram, Haryana, India. Workstations, seating, storage, tables and soft seating.",
   keywords: [
-    "office furniture Gurugram",
-    "premium office furniture Haryana",
-    "ergonomic chairs India",
-    "modular workstations Gurugram",
-    "office furniture Haryana",
-    "One and Only Furniture",
-    "oando furniture",
-    "office chairs Gurugram",
-    "meeting tables Haryana",
-    "storage solutions India",
+    "One and Only Furniture", "oando furniture",
+    "office furniture Gurugram", "office furniture Patna",
+    "premium office furniture Haryana", "ergonomic chairs India",
+    "modular workstations Gurugram", "office furniture Haryana",
+    "office chairs Gurugram", "meeting tables Haryana",
+    "storage solutions India", "bulk office furniture procurement India",
+    "corporate office fit-out contractor India",
+    "government office furniture supplier India",
+    "GeM office furniture supplier", "AFC franchise furniture dealer",
+    "BIFMA certified office furniture India",
+    "office furniture Delhi NCR", "office furniture Bihar",
   ],
   authors: [{ name: "One and Only Furniture", url: SITE_URL }],
   creator: "One and Only Furniture",
@@ -57,23 +53,22 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "One and Only Furniture",
     title: "One and Only Furniture | Premium Office Solutions",
-    description:
-      "Premium ergonomic office furniture in Gurugram, Haryana. Workstations, seating, storage and more.",
+    description: "Premium ergonomic office furniture in Gurugram, Haryana. Workstations, seating, storage and more.",
     images: [
       {
-        url: "/images/products/imported/fluid/image-1.webp",
+        // Replace with a proper 1200x630 branded OG card image
+        url: "/images/og/og-card.jpg",
         width: 1200,
         height: 630,
-        alt: "One and Only Furniture - Premium Office Solutions",
+        alt: "One and Only Furniture — Premium Office Solutions, Gurugram",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "One and Only Furniture | Premium Office Solutions",
-    description:
-      "Premium ergonomic office furniture in Gurugram, Haryana. Workstations, seating, storage and more.",
-    images: ["/images/products/imported/fluid/image-1.webp"],
+    description: "Premium ergonomic office furniture in Gurugram, Haryana. Workstations, seating, storage and more.",
+    images: ["/images/og/og-card.jpg"],
   },
 };
 
@@ -83,8 +78,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   name: "One and Only Furniture",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
-  description:
-    "Premium ergonomic office furniture in Gurugram, Haryana, India. Authorized dealer for leading office furniture brands.",
+  description: "Premium ergonomic office furniture in Gurugram, Haryana, India. Authorized dealer for leading office furniture brands.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Khasra No. 129, Village, Kherki Daula, Sector 84",
@@ -97,7 +91,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   telephone: "+91-124-403-1666",
   openingHours: "Mo-Sa 09:00-18:00",
   priceRange: "INR",
-  areaServed: ["Haryana", "Delhi NCR", "Uttar Pradesh", "India"],
+  areaServed: ["Haryana", "Delhi NCR", "Bihar", "Uttar Pradesh", "India"],
   sameAs: [
     SITE_URL,
     "https://www.facebook.com/oandofurniture",
@@ -105,19 +99,13 @@ const LOCAL_BUSINESS_JSON_LD = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-IN">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
         />
       </head>
       <body className="antialiased bg-white selection:bg-primary selection:text-white">
