@@ -115,8 +115,8 @@ function localSearch(entries: SearchIndexEntry[], query: string, limit: number):
   if (trimmedQuery.length < 2) return [];
 
   const fuse = new Fuse(entries, {
-    keys: ["title", "keywords"],
-    threshold: 0.35,
+    keys: ["title", "keywords", "type"],
+    threshold: 0.45,
     ignoreLocation: true,
   });
 
