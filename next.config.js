@@ -1,96 +1,100 @@
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://renameit-five.vercel.app'),
+  },
   trailingSlash: true,
   async redirects() {
     return [
       {
         source: "/products/oando-chairs",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-chairs/:slug",
         destination: "/products/seating/:slug",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-other-seating",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-other-seating/:slug",
         destination: "/products/seating/:slug",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-seating",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-workstations",
         destination: "/products/workstations",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-tables",
         destination: "/products/tables",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-storage",
         destination: "/products/storages",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-soft-seating",
         destination: "/products/soft-seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-collaborative",
         destination: "/products/soft-seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/oando-educational",
         destination: "/products/education",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/chairs-mesh",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/chairs-others",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/cafe-seating",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/desks-cabin-tables",
         destination: "/products/tables",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/meeting-conference-tables",
         destination: "/products/tables",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/others-1",
         destination: "/products/soft-seating",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/products/others-2",
         destination: "/products/seating",
-        permanent: false,
+        permanent: true,
       },
     ];
   },
