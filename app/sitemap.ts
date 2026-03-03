@@ -1,36 +1,19 @@
 import type { MetadataRoute } from "next";
 import { getCatalog } from "@/lib/getProducts";
 import { buildRequestedCategoryCatalog } from "@/lib/catalogCategories";
-
-const BASE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://ourwebsitecopy2026-02-21.vercel.app")
-).replace(/\/+$/, "");
+import { SITE_URL } from "@/lib/siteUrl";
 
 const STATIC_PATHS = [
-  "/",
-  "/about",
-  "/products",
-  "/solutions",
-  "/projects",
-  "/portfolio",
-  "/trusted-by",
-  "/gallery",
-  "/contact",
-  "/service",
-  "/showrooms",
-  "/sustainability",
-  "/refund-and-return-policy",
-  "/privacy",
-  "/terms",
-  "/quote-cart",
+  "/", "/about", "/products", "/solutions", "/projects",
+  "/portfolio", "/trusted-by", "/gallery", "/contact",
+  "/service", "/showrooms", "/sustainability",
+  "/refund-and-return-policy", "/privacy", "/terms", "/quote-cart",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
-    url: `${BASE_URL}${path}`,
+    url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency: path === "/" ? "daily" : "weekly",
     priority: path === "/" ? 1 : 0.7,
@@ -40,17 +23,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const catalog = buildRequestedCategoryCatalog(await getCatalog());
     for (const category of catalog) {
       entries.push({
-        url: `${BASE_URL}/products/${category.id}`,
+        url: `${SITE_URL}/products/${category.id}`,
         lastModified: now,
         changeFrequency: "weekly",
         priority: 0.8,
       });
-
       for (const series of category.series) {
         for (const product of series.products) {
           const slug = product.slug || product.id;
           entries.push({
-            url: `${BASE_URL}/products/${category.id}/${slug}`,
+            url: `${SITE_URL}/products/${category.id}/${slug}`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.6,
@@ -58,10 +40,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
       }
     }
-  } catch {
-    // Keep static sitemap if catalog fetch fails.
+  } catch (err) {
+    // Log in non-production so catalog failures are visible
+    if (process.env.NODE_ENV !== "production") {
+      console.error("[sitemap] catalog fetch failed:", err);
+    }
   }
 
   return entries;
 }
-
