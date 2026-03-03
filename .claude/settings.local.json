@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ayushmayoite.wixsite.com)",
+      "Bash(git add app/page.tsx components/HeroCarousel.tsx components/layout/Footer.tsx components/shared/GsapAnimations.tsx)",
+      "Bash(git commit:*)",
+      "Bash(git add app/layout.tsx app/page.tsx components/home/CategoryGrid.tsx components/home/OurWork.tsx)",
+      "Bash(vercel --prod)",
+      "Bash(grep -r \"backgroundImage\\\\|src=\\\\|/hero/\\\\|/images/\" /e/ourwebsite_copy_2026-02-21/app/*.tsx)",
+      "Bash(find components -name \"*.tsx\" -exec grep -l \"bg-neutral-900\\\\|bg-black\" {} ;)",
+      "Bash(grep -n \"#[0-9A-Fa-f]\" /e/ourwebsite_copy_2026-02-21/components/configurator/*.tsx)",
+      "Bash(git add app/globals.css components/home/PartnershipBanner.tsx components/ProductGallery.tsx \"app/products/[category]/[slug]/ProductViewer.tsx\" \"app/products/[category]/loading.tsx\" \"app/products/[category]/FilterGrid.tsx\")",
+      "Bash(npx vercel ls)",
+      "Bash(npx vercel domains ls)",
+      "WebFetch(domain:antigravity26022026.vercel.app)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
