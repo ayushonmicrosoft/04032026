@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import fs from "node:fs/promises";
 import path from "node:path";
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
+
+
+export const metadata: Metadata = {
+  title: "Project Portfolio | One and Only Furniture",
+  description: "View our successful office furniture installations for leading corporate, government, and institutional clients across India.",
+};
 
 type ClientPortfolio = {
   id: string;
@@ -91,7 +98,7 @@ export default async function PortfolioPage() {
   const totalPhotos = portfolio.reduce((sum, item) => sum + item.photos.length, 0);
 
   return (
-    <section className="flex min-h-screen flex-col items-center bg-white">
+    <main className="flex min-h-screen flex-col items-center bg-white">
       <Hero
         variant="small"
         title="Portfolio"
@@ -159,7 +166,7 @@ export default async function PortfolioPage() {
             </article>
           ))}
         </div>
-      </section>
+      </main>
 
       <ContactTeaser />
     </section>
