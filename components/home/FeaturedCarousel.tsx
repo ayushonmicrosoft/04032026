@@ -76,6 +76,7 @@ export function FeaturedCarousel() {
                   src={product.image}
                   alt={product.name}
                   fill
+                  loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
