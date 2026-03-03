@@ -49,9 +49,9 @@ export function WhyUs({ stats, asOfLabel }: WhyUsProps) {
               >
                 {number}
               </span>
-              <h3 className="typ-h3 mt-4 text-neutral-900">
+              <p className="typ-h3 mt-4 font-bold text-neutral-900">
                 {label}
-              </h3>
+              </p>
               <p className="mx-auto mt-2 max-w-[32ch] text-sm leading-relaxed text-neutral-600">
                 {caption}
               </p>
