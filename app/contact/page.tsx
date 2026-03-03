@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
 import { CustomerQueryForm } from "@/components/contact/CustomerQueryForm";
+export const metadata: Metadata = {
+  title: "Contact Us | One and Only Furniture",
+  description: "Get in touch with One and Only Furniture for premium office solutions in Gurugram and Patna. Request a quote or visit our showroom.",
+};
 
 export default function ContactPage() {
   return (
