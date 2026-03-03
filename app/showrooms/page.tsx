@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
+export const metadata: Metadata = {
+  title: "Our Showrooms | One and Only Furniture",
+  description: "Visit One and Only Furniture showrooms to experience our premium ergonomic office furniture firsthand. Locations in Gurugram and Patna.",
+};
 
 export default function ShowroomsPage() {
   return (
