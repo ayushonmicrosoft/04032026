@@ -5,8 +5,6 @@ import { SiteFooter } from "@/components/site/Footer";
 import { CookieConsentBar } from "@/components/site/CookieConsentBar";
 import DynamicBotWrapper from "@/components/bot/DynamicBotWrapper";
 import QueryProvider from "@/app/providers/QueryProvider";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/lib/siteUrl";
 import { ciscoSans } from "@/lib/fonts";
 
@@ -129,9 +127,7 @@ export default function RootLayout({
           </a>
           
           <DynamicBotWrapper />
-          <Analytics />
-          <SpeedInsights />
-        </QueryProvider>
+                            </QueryProvider>
       </body>
     </html>
   );
