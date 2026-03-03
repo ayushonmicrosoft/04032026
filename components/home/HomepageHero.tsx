@@ -52,6 +52,9 @@ export function HomepageHero() {
         <div className="container px-6 2xl:px-0">
           <div className="max-w-2xl">
             <h1 className="typ-h1 text-white">Office spaces made for your team.</h1>
+            <p className="mt-6 text-lg text-white/80 md:text-xl">
+              Patna's most trusted office fit-out partner since 2011. Serving corporate, government, and institutional projects across India.
+            </p>
             <div className="mt-8">
               <Link
                 href="/products"
