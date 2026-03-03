@@ -86,7 +86,7 @@ export default function CareerPage() {
             </p>
           </div>
         </div>
-      </main>
+      
 
       {/* Open Positions */}
       <section className="w-full bg-neutral-50 py-24 border-y border-neutral-200">
@@ -136,5 +136,6 @@ export default function CareerPage() {
       <Newsletter />
       <ContactTeaser />
     </section>
+    </main>
   );
 }
