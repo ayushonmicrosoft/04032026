@@ -24,6 +24,11 @@ export default async function Home() {
       {/* 1 - Brand promise */}
       <HomepageHero />
 
+      {/* 2 - Client social proof */}
+      <SectionReveal>
+        <ClientMarquee />
+      </SectionReveal>
+
       {/* 2 - Featured products */}
       <SectionReveal>
         <FeaturedCarousel />
@@ -69,10 +74,7 @@ export default async function Home() {
         <PartnershipSection />
       </SectionReveal>
 
-      {/* 9 - Client marquee */}
-      <SectionReveal>
-        <ClientMarquee />
-      </SectionReveal>
+
 
       {/* 10 - Final CTA */}
       <SectionReveal>
