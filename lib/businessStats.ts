@@ -23,7 +23,7 @@ const SAFE_DEFAULT_STATS: BusinessStats = {
   sectorsServed: 18,
   locationsServed: 20,
   yearsExperience: 15,
-  asOfDate: "2026-03-01",
+  asOfDate: "2025-03-01",
 };
 
 let lastKnownGoodStats: BusinessStats | null = null;
