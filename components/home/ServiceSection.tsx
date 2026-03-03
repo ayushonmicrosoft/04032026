@@ -95,7 +95,7 @@ export function ServiceSection() {
                   className="group relative block w-full aspect-[16/10] overflow-hidden rounded-sm"
                 >
                   {/* Image */}
-                  <Image
+                  <Image loading="lazy"
                     src={currentImage}
                     alt={item.title}
                     fill
