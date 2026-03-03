@@ -69,6 +69,35 @@ export async function generateStaticParams() {
 function GridSkeleton() {
   return (
     <div className="container-wide py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": BASE_URL
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": `${BASE_URL}/products`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": normalizedCategory.name,
+                "item": `${BASE_URL}/products/${canonicalCategoryId}`
+              }
+            ]
+          }),
+        }}
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <div
