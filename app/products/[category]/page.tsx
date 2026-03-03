@@ -167,6 +167,35 @@ export default async function CategoryPage({
         showButton={false}
         backgroundImage={heroImage}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": BASE_URL
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": `${BASE_URL}/products`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": normalizedCategory.name,
+                "item": `${BASE_URL}/products/${canonicalCategoryId}`
+              }
+            ]
+          }),
+        }}
+      />
       <Suspense fallback={<GridSkeleton />}>
         <FilterGrid category={normalizedCategory} categoryId={canonicalCategoryId} />
       </Suspense>
