@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
@@ -5,6 +6,10 @@ import { ClientBadge } from "@/components/ClientBadge";
 import { Newsletter } from "@/components/shared/Newsletter";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
 import { TRUSTED_BY_CLIENTS, TRUSTED_BY_STATS } from "@/lib/trustedBy";
+export const metadata: Metadata = {
+  title: "About Us | One and Only Furniture",
+  description: "Learn about One and Only Furniture, Patna's most trusted office fit-out partner since 2011. Serving corporate, government, and institutional projects across India.",
+};
 
 export default function AboutPage() {
   const featuredClients = TRUSTED_BY_CLIENTS.slice(0, 8);
