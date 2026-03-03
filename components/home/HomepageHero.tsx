@@ -37,7 +37,7 @@ export function HomepageHero() {
             alt={image.alt}
             fill
             priority={index === 0}
-            quality={95}
+            quality={75}
             sizes="100vw"
             className={`object-cover transition-opacity duration-1000 ${
               index === activeIndex ? "opacity-100" : "opacity-0"
@@ -57,10 +57,10 @@ export function HomepageHero() {
             </p>
             <div className="mt-8">
               <Link
-                href="/products"
+                href="/contact"
                 className="typ-cta inline-flex items-center gap-3 bg-primary px-8 py-4 text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                View Product Catalog <ArrowRight className="h-4 w-4" />
+                Request a Free Consultation <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
