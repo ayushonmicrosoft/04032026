@@ -166,9 +166,10 @@ export default async function PortfolioPage() {
             </article>
           ))}
         </div>
-      </main>
+      
 
       <ContactTeaser />
     </section>
+    </main>
   );
 }
