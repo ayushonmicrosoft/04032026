@@ -8,7 +8,7 @@ import { Teaser } from "@/components/home/Teaser";
 import { ServiceSection } from "@/components/home/ServiceSection";
 import { ClientMarquee } from "@/components/home/ClientMarquee";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
-import { GsapAnimations } from "@/components/shared/GsapAnimations";
+import { FadeInUp } from "@/components/shared/PageAnimations";
 import { SectionReveal } from "@/components/shared/SectionReveal";
 import { getBusinessStats } from "@/lib/businessStats";
 import { formatKpiAsOf } from "@/lib/kpiFormat";
@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <GsapAnimations />
+      
 
       {/* 1 - Brand promise */}
       <HomepageHero />
