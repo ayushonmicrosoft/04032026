@@ -343,6 +343,14 @@ function Toggle({
 
 // â”€â”€â”€ Product Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+
+const PRICE_MAP: Record<string, string> = {
+  budget: "₹4,999",
+  mid: "₹14,999",
+  premium: "₹34,999",
+  luxury: "₹74,999",
+};
+
 function ProductCard({
   product,
   categoryId,
@@ -418,6 +426,11 @@ function ProductCard({
           <h3 className="text-sm font-semibold text-neutral-900 group-hover:text-neutral-700 transition-colors leading-tight">
             {displayName}
           </h3>
+          {product.metadata?.priceRange && (
+            <p className="text-xs font-bold text-primary mt-1">
+              Starting from {PRICE_MAP[product.metadata.priceRange.toLowerCase()] || "Contact for price"}
+            </p>
+          )}
           <p className="text-xs text-neutral-500 mt-1 line-clamp-2 leading-relaxed">
             {product.description}
           </p>
