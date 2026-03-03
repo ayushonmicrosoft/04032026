@@ -52,7 +52,8 @@ export default function NewsPage() {
             </div>
           </div>
         </div>
-      </main>
+      
     </section>
+    </main>
   );
 }
