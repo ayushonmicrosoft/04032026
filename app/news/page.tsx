@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
+
+
+export const metadata: Metadata = {
+  title: "News & Updates | One and Only Furniture",
+  description: "Stay updated with the latest news, product launches, and announcements from One and Only Furniture.",
+};
 
 export default function NewsPage() {
   return (
-    <section className="flex min-h-screen flex-col items-center bg-white">
+    <main className="flex min-h-screen flex-col items-center bg-white">
       <Hero
         variant="small"
         title="News & Updates"
@@ -45,8 +52,7 @@ export default function NewsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
     </section>
   );
 }
-
