@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { Newsletter } from "@/components/shared/Newsletter";
 import { ContactTeaser } from "@/components/shared/ContactTeaser";
 import { ContentBlock } from "@/components/shared/ContentBlock";
 import { Reveal } from "@/components/shared/Reveal";
 import Image from "next/image";
+export const metadata: Metadata = {
+  title: "Office Furniture Solutions | One and Only Furniture",
+  description: "Explore our complete workspace systems engineered for performance. From small startups to large-scale government projects.",
+};
 
 export default function SolutionsPage() {
   const deliveryStats = [
