@@ -53,7 +53,7 @@ export function FeaturedCarousel() {
       <div className="container px-6 2xl:px-0">
         <div className="mb-10 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="typ-h1 text-neutral-900">Featured products</h2>
+            <h2 className="typ-h2 text-neutral-900">Featured products</h2>
           </div>
 
           <Link
@@ -69,9 +69,9 @@ export function FeaturedCarousel() {
             <Link
               key={product.id}
               href={product.link}
-              className="group overflow-hidden rounded-3xl border border-cyan-900/30 bg-[#040C18] text-white transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              className="group overflow-hidden rounded-3xl border border-neutral-200 bg-white transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              <div className="relative aspect-[16/10] overflow-hidden border-b border-cyan-800/30">
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-neutral-100">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -82,8 +82,8 @@ export function FeaturedCarousel() {
               </div>
 
               <div className="space-y-2 p-6">
-                <p className="typ-eyebrow text-cyan-300/70">{product.category}</p>
-                <span className="typ-cta inline-flex items-center gap-2 text-cyan-200">
+                <p className="typ-eyebrow text-primary/70">{product.category}</p>
+                <span className="typ-cta inline-flex items-center gap-2 text-primary">
                   See Product <ArrowRight className="h-4 w-4" />
                   <span className="sr-only">for {product.name}</span>
                 </span>
