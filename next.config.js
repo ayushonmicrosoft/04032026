@@ -1,107 +1,57 @@
+/**
+ * next.config.js
+ * FIXES:
+ * - env block: NEXT_PUBLIC_SITE_URL baked at build time (domain-agnostic)
+ * - All 18 redirects changed permanent: false → permanent: true (301, passes link equity)
+ * - compress, poweredByHeader, productionBrowserSourceMaps
+ * - images: AVIF format, 30-day cache TTL
+ * - optimizePackageImports expanded
+ */
+
 const nextConfig = {
   trailingSlash: true,
+
+  // Bake the canonical URL at build time so it's available everywhere.
+  // Change domain: just set NEXT_PUBLIC_SITE_URL in your host env vars.
+  env: {
+    NEXT_PUBLIC_SITE_URL:
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"),
+  },
+
+  compress: true,
+  poweredByHeader: false,
+  productionBrowserSourceMaps: false,
+
   async redirects() {
     return [
-      {
-        source: "/products/oando-chairs",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-chairs/:slug",
-        destination: "/products/seating/:slug",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-other-seating",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-other-seating/:slug",
-        destination: "/products/seating/:slug",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-seating",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-workstations",
-        destination: "/products/workstations",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-tables",
-        destination: "/products/tables",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-storage",
-        destination: "/products/storages",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-soft-seating",
-        destination: "/products/soft-seating",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-collaborative",
-        destination: "/products/soft-seating",
-        permanent: false,
-      },
-      {
-        source: "/products/oando-educational",
-        destination: "/products/education",
-        permanent: false,
-      },
-      {
-        source: "/products/chairs-mesh",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/chairs-others",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/cafe-seating",
-        destination: "/products/seating",
-        permanent: false,
-      },
-      {
-        source: "/products/desks-cabin-tables",
-        destination: "/products/tables",
-        permanent: false,
-      },
-      {
-        source: "/products/meeting-conference-tables",
-        destination: "/products/tables",
-        permanent: false,
-      },
-      {
-        source: "/products/others-1",
-        destination: "/products/soft-seating",
-        permanent: false,
-      },
-      {
-        source: "/products/others-2",
-        destination: "/products/seating",
-        permanent: false,
-      },
+      { source: "/products/oando-chairs", destination: "/products/seating", permanent: true },
+      { source: "/products/oando-chairs/:slug", destination: "/products/seating/:slug", permanent: true },
+      { source: "/products/oando-other-seating", destination: "/products/seating", permanent: true },
+      { source: "/products/oando-other-seating/:slug", destination: "/products/seating/:slug", permanent: true },
+      { source: "/products/oando-seating", destination: "/products/seating", permanent: true },
+      { source: "/products/oando-workstations", destination: "/products/workstations", permanent: true },
+      { source: "/products/oando-tables", destination: "/products/tables", permanent: true },
+      { source: "/products/oando-storage", destination: "/products/storages", permanent: true },
+      { source: "/products/oando-soft-seating", destination: "/products/soft-seating", permanent: true },
+      { source: "/products/oando-collaborative", destination: "/products/soft-seating", permanent: true },
+      { source: "/products/oando-educational", destination: "/products/education", permanent: true },
+      { source: "/products/chairs-mesh", destination: "/products/seating", permanent: true },
+      { source: "/products/chairs-others", destination: "/products/seating", permanent: true },
+      { source: "/products/cafe-seating", destination: "/products/seating", permanent: true },
+      { source: "/products/desks-cabin-tables", destination: "/products/tables", permanent: true },
+      { source: "/products/meeting-conference-tables", destination: "/products/tables", permanent: true },
+      { source: "/products/others-1", destination: "/products/soft-seating", permanent: true },
+      { source: "/products/others-2", destination: "/products/seating", permanent: true },
     ];
   },
+
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2592000, // 30 days (was default 60s)
     qualities: [75, 95, 100],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.supabase.co",
-        pathname: "/storage/v1/object/public/**",
-      },
+      { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "catalogindia.in" },
       { protocol: "https", hostname: "static.wixstatic.com" },
@@ -109,8 +59,15 @@ const nextConfig = {
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
     ],
   },
+
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-slot",
+    ],
   },
 };
 
