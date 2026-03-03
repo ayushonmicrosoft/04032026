@@ -11,13 +11,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const AdvancedBot = dynamic(() =>
   import("@/components/bot/AdvancedBot").then((m) => ({
     default: m.AdvancedBot,
-  })),
-);
+  })), { ssr: false });
 const AIAdvisor = dynamic(() =>
   import("@/components/ai/Advisor").then((m) => ({
     default: m.AIAdvisor,
-  })),
-);
+  })), { ssr: false });
 
 const FALLBACK_SITE_URL = "https://ourwebsitecopy2026-02-21.vercel.app";
 const RAW_SITE_URL =
