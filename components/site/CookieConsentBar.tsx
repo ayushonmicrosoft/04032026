@@ -122,11 +122,11 @@ export function CookieConsentBar() {
     <section
       role="dialog"
       aria-live="polite"
-      aria-label="Cookie preferences"
+      aria-label="Cookie preferences" aria-describedby="cookie-description"
       className="fixed inset-x-0 bottom-0 z-[9998] border-t border-neutral-200 bg-white/95 shadow-[0_-12px_28px_-24px_rgba(15,23,42,0.65)] backdrop-blur"
     >
       <div className="container flex flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between 2xl:px-0">
-        <p className="text-sm leading-relaxed text-neutral-700">
+        <p id="cookie-description" className="text-sm leading-relaxed text-neutral-700">
           We use essential cookies and optional SEO measurement cookies (landing page, referrer,
           and UTM attribution) to improve discoverability and user journeys. See our{" "}
           <Link href="/privacy" className="font-semibold text-primary hover:underline">
