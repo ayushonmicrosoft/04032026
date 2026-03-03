@@ -372,7 +372,7 @@ export function SiteHeader() {
                   className={cn(
                     "rounded-full px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                     cta.variant === "primary"
-                      ? "bg-primary text-white hover:bg-primary/90"
+                      ? "hidden sm:inline-flex bg-primary text-white hover:bg-primary/90"
                       : "hidden md:inline-flex border border-neutral-300 text-neutral-700 hover:border-neutral-500 hover:text-neutral-900",
                   )}
                 >
