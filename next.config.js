@@ -1,7 +1,6 @@
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://renameit-five.vercel.app'),
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://oneandonlyfurniture.com',
   },
   trailingSlash: true,
   async redirects() {
