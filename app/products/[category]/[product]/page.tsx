@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/siteUrl";
 import { supabase } from "@/lib/db";
 import { notFound, redirect } from "next/navigation";
 import { ProductViewer } from "./ProductViewer";
@@ -120,7 +121,7 @@ export async function generateMetadata({
     normalizeAssetPath(images.length > 0 ? images[0] : null) ||
     normalizeAssetPath(product.flagship_image) ||
     "/images/fallback/category.webp";
-  const url = `${BASE_URL}/products/${resolvedCategoryId}/${productUrlKey}`;
+  const url = `${SITE_URL}/products/${resolvedCategoryId}/${productUrlKey}`;
 
   return {
     title,
@@ -285,7 +286,7 @@ async function ProductContent({
     ? `/products/${resolvedCategoryId}?${fromQuery}`
     : `/products/${resolvedCategoryId}`;
 
-  const url = `${BASE_URL}/products/${resolvedCategoryId}/${p.slug}`;
+  const url = `${SITE_URL}/products/${resolvedCategoryId}/${p.slug}`;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -295,13 +296,13 @@ async function ProductContent({
         "@type": "ListItem",
         "position": 1,
         "name": "Products",
-        "item": `${BASE_URL}/products`
+        "item": `${SITE_URL}/products`
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": p.series_name || resolvedCategoryId,
-        "item": `${BASE_URL}/products/${resolvedCategoryId}`
+        "item": `${SITE_URL}/products/${resolvedCategoryId}`
       },
       {
         "@type": "ListItem",
